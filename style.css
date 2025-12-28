@@ -1,0 +1,873 @@
+/* style.css */
+/* Reset e configurações globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0066FF;
+  --primary-dark: #0052CC;
+  --text: #1d1d1f;
+  --light-bg: rgba(255, 255, 255, 0.9);
+  --transition-fast: all 0.3s ease;
+  --transition-normal: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #e8eaed 0%, #c5c9ce 50%, #d1d5da 100%);
+  min-height: 100vh;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* === Header === */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+  padding: 1.5rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-placeholder,
+.qr-placeholder {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  border-radius: 12px;
+}
+
+.logo-placeholder {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  font-size: 1.2rem;
+}
+
+.logo-image,
+.qr-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.qr-image {
+  width: 80px;
+  height: 80px;
+}
+
+.qr-placeholder {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: var(--primary);
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 600;
+}
+
+.header-title h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.header-title .author {
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* === Container Principal === */
+.container {
+  max-width: 1400px;
+  margin: 240px auto 3rem;
+  padding: 0 2rem;
+}
+
+/* === Carrossel === */
+.carousel-container {
+  position: relative;
+  overflow: visible;
+  perspective: 2000px;
+  padding: 2rem 0;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  gap: 2rem;
+}
+
+.slide {
+  min-width: 100%;
+  padding: 0 1rem;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  opacity: 0.4;
+  transform: scale(0.85) translateZ(-200px);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+  filter: blur(0);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.slide.prev,
+.slide.next {
+  opacity: 0.6;
+  transform: scale(0.92) translateZ(-100px);
+  filter: blur(1px);
+  z-index: 5;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.slide.prev:hover,
+.slide.next:hover {
+  opacity: 0.75;
+  transform: scale(0.94) translateZ(-80px);
+}
+
+.slide-content {
+  background: var(--light-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 24px;
+  padding: 3rem;
+  border: 1px solid rgba(0, 102, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  transition: var(--transition-normal);
+}
+
+.slide.active .slide-content {
+  box-shadow: 0 30px 80px rgba(0, 102, 255, 0.2);
+}
+
+/* === Stage Header === */
+.stage-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.stage-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.stage-icon-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage-icon-placeholder::before {
+  font-size: 4rem;
+}
+
+/* Estilos por classe de estádio */
+.vegetative-early { background: linear-gradient(135deg, #3d6b1f, #5a8c32); }
+.vegetative { background: linear-gradient(135deg, #2d5016, #4a7c27); }
+.flowering { background: linear-gradient(135deg, #ff9800, #f57c00); }
+.grain-fill { background: linear-gradient(135deg, #7b1fa2, #6a1b9a); }
+.maturation { background: linear-gradient(135deg, #1565c0, #0d47a1); }
+.practices { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+
+.vegetative-early .stage-icon-placeholder::before { content: "🌱"; }
+.vegetative .stage-icon-placeholder::before { content: "🌿"; }
+.flowering .stage-icon-placeholder::before { content: "🌸"; }
+.grain-fill .stage-icon-placeholder::before { content: "🫛"; }
+.maturation .stage-icon-placeholder::before { content: "🌾"; }
+.practices .stage-icon-placeholder::before { content: "🚜"; }
+
+.stage-info h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.stage-info .stage-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.stage-info .days {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* === Grid e Seções === */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info-section {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+.info-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hormone-list, .nutrient-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hormone-item, .nutrient-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hormone-item strong, .nutrient-item strong {
+  color: var(--primary);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1.05rem;
+}
+
+.hormone-item p, .nutrient-item p {
+  color: #333;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.critical-nutrient {
+  background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 140, 0, 0.05));
+  border-left-color: #FFA500;
+}
+
+.critical-nutrient strong {
+  color: #FF8C00;
+}
+
+.critical-function {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 82, 204, 0.05));
+  border-radius: 16px;
+  padding: 2rem;
+  border: 2px solid var(--primary);
+}
+
+.critical-function h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.critical-function p {
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.context-section {
+  background: rgba(0, 102, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--primary);
+}
+
+.context-section h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+}
+
+.context-section p {
+  color: #333;
+  line-height: 1.7;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+/* === Ilustração da Planta === */
+.plant-illustration-section {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.03), rgba(0, 102, 255, 0.01));
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.plant-illustration-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  position: relative;
+}
+
+.plant-central-image {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.plant-central-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+}
+
+.plant-placeholder {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(180deg,
+    rgba(168, 230, 207, 0.3) 0%,
+    rgba(78, 205, 196, 0.2) 30%,
+    rgba(255, 107, 107, 0.2) 70%,
+    rgba(255, 165, 0, 0.3) 100%);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px dashed rgba(0, 102, 255, 0.3);
+  position: relative;
+}
+
+.plant-placeholder::before {
+  content: '🌱';
+  font-size: 8rem;
+  opacity: 0.4;
+}
+
+.plant-placeholder-text {
+  font-size: 1.2rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.hormone-actions-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+}
+
+.hormone-action-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hormone-action-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 8px 30px rgba(0, 102, 255, 0.15);
+}
+
+.hormone-action-item::before {
+  content: '→';
+  font-size: 2rem;
+  color: rgba(0, 102, 255, 0.6);
+  font-weight: bold;
+  position: absolute;
+  left: -2rem;
+  animation: pulse-arrow 2s infinite;
+}
+
+@keyframes pulse-arrow {
+  0%, 100% { transform: translateX(0); opacity: 0.6; }
+  50% { transform: translateX(-5px); opacity: 1; }
+}
+
+.hormone-action-icon {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hormone-action-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hormone-action-icon-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+}
+
+.hormone-action-info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hormone-action-info .action-location {
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.hormone-action-info .action-description {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* === Hormone Cards === */
+.hormone-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.hormone-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 102, 255, 0.03) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hormone-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 102, 255, 0.2);
+}
+
+.hormone-card:hover::before {
+  opacity: 1;
+}
+
+.hormone-icon {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: var(--transition-normal);
+  overflow: hidden;
+}
+
+.hormone-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 3;
+}
+
+.hormone-symbol {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.hormone-card:hover .hormone-icon {
+  transform: rotate(10deg) scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  animation: pulse 2s infinite;
+}
+
+.hormone-icon::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  width: 40%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+  50% { box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25); }
+}
+
+.hormone-icon::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hormone-info h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hormone-info p {
+  color: #333;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.hormone-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: var(--text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+/* Ilustrações por hormônio */
+.ga-illustration::before { content: '↑'; position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-size: 3rem; color: rgba(255, 107, 107, 0.2); font-weight: bold; }
+.ax-illustration::after { content: ''; position: absolute; right: -30px; top: 60%; width: 3px; height: 40px; background: linear-gradient(180deg, rgba(78, 205, 196, 0.3) 0%, transparent 100%); }
+.ck-illustration::before,
+.ck-illustration::after { content: ''; position: absolute; right: -25px; width: 20px; height: 2px; background: linear-gradient(90deg, rgba(168, 230, 207, 0.4) 0%, transparent 100%); }
+.ck-illustration::before { top: 40%; transform: rotate(-30deg); }
+.ck-illustration::after { top: 60%; transform: rotate(30deg); }
+.et-illustration::before { content: '◦ ◦ ◦'; position: absolute; right: -50px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: rgba(255, 217, 61, 0.3); letter-spacing: 5px; animation: float 3s ease-in-out infinite; }
+.aba-illustration::before { content: '⚠'; position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-size: 2.5rem; color: rgba(199, 125, 255, 0.2); }
+
+@keyframes float {
+  0%, 100% { transform: translateY(-50%) translateX(0); opacity: 0.3; }
+  50% { transform: translateY(-50%) translateX(-10px); opacity: 0.6; }
+}
+
+/* === Controles e Indicadores === */
+.carousel-controls, .navigation-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.nav-button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+.nav-button:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+}
+
+.nav-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.indicators {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(0, 102, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--primary);
+  width: 40px;
+  border-radius: 6px;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.3);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--primary), #00BFFF);
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.executive-summary {
+  background: var(--light-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 102, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.executive-summary h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.executive-summary p {
+  color: #333;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+/* Navegação Topo */
+.navigation-top {
+  position: fixed;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  gap: 1.5rem;
+}
+
+.navigation-top .nav-button {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+.indicators-minimal {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.indicator-minimal {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(0, 102, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator-minimal.active {
+  background: var(--primary);
+  width: 40px;
+  border-radius: 6px;
+}
+
+.indicator-minimal:hover:not(.active) {
+  background: rgba(0, 102, 255, 0.4);
+  transform: scale(1.2);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .header-content { flex-direction: column; gap: 1rem; }
+  .info-grid { grid-template-columns: 1fr; }
+  .stage-header { flex-direction: column; text-align: center; }
+  .slide-content { padding: 2rem; }
+  .container { margin-top: 260px; padding: 0 1rem; }
+
+  .navigation-top { top: 120px; padding: 0.6rem 1.5rem; gap: 1rem; }
+  .navigation-top .nav-button { width: 45px; height: 45px; font-size: 1.2rem; }
+  .indicator-minimal { width: 10px; height: 10px; }
+  .indicator-minimal.active { width: 30px; }
+
+  .carousel-container { perspective: 1000px; }
+  .slide { transform: scale(0.8) translateZ(-150px); }
+  .slide.active { transform: scale(1) translateZ(0); }
+  .slide.prev, .slide.next { transform: scale(0.88) translateZ(-80px); }
+
+  .stage-icon { width: 80px; height: 80px; }
+  .stage-icon::before { font-size: 2.5rem; }
+
+  .hormone-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hormone-icon { width: 60px; height: 60px; min-width: 60px; }
+  .hormone-symbol { font-size: 1.3rem; }
+
+  .plant-illustration-container { flex-direction: column; min-height: auto; }
+  .plant-central-image { max-width: 100%; margin-bottom: 2rem; }
+  .plant-placeholder { height: 300px; }
+  .hormone-actions-container { max-width: 100%; }
+  .hormone-action-item::before { display: none; }
+  .hormone-action-item { padding-left: 1rem; }
+  .hormone-action-icon { width: 60px; height: 60px; min-width: 60px; }
+  .hormone-action-info h4 { font-size: 1rem; }
+  .hormone-action-info .action-location { font-size: 0.8rem; }
+  .hormone-action-info .action-description { font-size: 0.85rem; }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInCenter {
+  from { opacity: 0; transform: scale(0.9) translateZ(-100px); }
+  to { opacity: 1; transform: scale(1) translateZ(0); }
+}
+
+.slide.active .slide-content {
+  animation: slideInCenter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
