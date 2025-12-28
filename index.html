@@ -4,11 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hormônios Vegetais e Micronutrientes na Soja - Relatório Técnico Interativo</title>
-  <meta name="description" content="Relatório técnico interativo sobre hormônios vegetais e micronutrientes na soja, com foco em estádios fenológicos e recomendações práticas para máxima produtividade." />
-  <meta property="og:title" content="Hormônios Vegetais e Micronutrientes na Soja" />
-  <meta property="og:description" content="Relatório técnico interativo com orientações práticas para manejo hormonal e nutricional na cultura da soja." />
-  <meta property="og:type" content="article" />
-
+  <meta name="description" content="Relatório técnico interativo sobre hormônios vegetais e micronutrientes na soja, com foco em estádios fenológicos e recomendações práticas." />
+  
   <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,8 +15,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <!-- Header Fixo -->
-  <header class="header">
+  <div class="header">
     <div class="header-content">
       <div class="logo-section">
         <img src="logo.png" alt="Logo Nutrien" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -32,18 +30,20 @@
       <img src="qrcode.png" alt="QR Code para acesso digital" class="qr-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
       <div class="qr-placeholder">QR<br>CODE</div>
     </div>
-  </header>
+  </div>
 
   <!-- Navegação Minimalista no Topo -->
-  <nav class="navigation-top" aria-label="Navegação por estádios fenológicos">
-    <button class="nav-button" id="prevBtnTop" aria-label="Estádio anterior">◀</button>
+  <div class="navigation-top">
+    <button class="nav-button" id="prevBtnTop" aria-label="Anterior">◀</button>
     <div class="indicators-minimal" id="indicatorsTop"></div>
-    <button class="nav-button" id="nextBtnTop" aria-label="Próximo estádio">▶</button>
-  </nav>
+    <button class="nav-button" id="nextBtnTop" aria-label="Próximo">▶</button>
+  </div>
 
-  <main class="container">
+  <!-- Container Principal -->
+  <div class="container">
+
     <!-- Resumo Executivo -->
-    <section class="executive-summary">
+    <div class="executive-summary">
       <h2>📊 Resumo Executivo</h2>
       <p>
         A performance produtiva da soja (<em>Glycine max</em>) resulta da interação sincronizada entre
@@ -54,30 +54,526 @@
         vegetativas (VE a VN) e reprodutivas (R1 a R8). Navegue pelos estádios fenológicos para compreender
         os mecanismos fundamentais que maximizam o potencial produtivo da cultura.
       </p>
-    </section>
+    </div>
 
     <!-- Barra de Progresso -->
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar">
       <div class="progress-fill" id="progressFill"></div>
     </div>
 
     <!-- Carrossel -->
-    <div class="carousel-container" aria-live="polite">
+    <div class="carousel-container">
       <div class="carousel-wrapper" id="carouselWrapper">
-        <!-- Os 6 slides permanecem EXATAMENTE como estavam no HTML original -->
-        <!-- (por simplicidade, mantive o conteúdo inline aqui — mas já está limpo de CSS/JS) -->
-        <!-- Slide 1 a 6: VE-V2, V3-VN, R1-R3, R5, R6-R8, Aplicações Práticas -->
-        <!-- [Conteúdo original dos slides vem aqui — já está incluso no seu arquivo] -->
+
+        <!-- SLIDE 1: VE-V2 -->
+        <div class="slide">
+          <div class="slide-content">
+            <div class="stage-header">
+              <div class="stage-icon vegetative-early">
+                <img src="icons/ve-v2.png" alt="VE-V2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="stage-icon-placeholder" style="display: none;"></div>
+              </div>
+              <div class="stage-info">
+                <h2>VE - V2</h2>
+                <div class="stage-name">Estabelecimento Radicular e Ativação Metabólica</div>
+                <div class="days">📅 0-16 dias após o plantio | Emergência até 2ª folha trifoliolada</div>
+              </div>
+            </div>
+            <div class="context-section">
+              <h4>📖 Contexto Fenológico</h4>
+              <p>O estádio VE (emergência) caracteriza-se pela exposição dos cotilédones acima do solo, marcando o início da fase autotrófica. Em V1, observa-se o primeiro nó com folhas unifolioladas completamente desenvolvidas, e em V2 ocorre a primeira folha trifoliolada com bordos expandidos. Este período é <strong>crítico para o estabelecimento do estande e da arquitetura radicular</strong>, definindo o potencial de captação de água e nutrientes durante todo o ciclo.</p>
+            </div>
+            <div class="plant-illustration-section">
+              <h3 style="text-align: center; color: #0066FF; margin-bottom: 1.5rem; font-size: 1.4rem;">
+                📊 Mapa de Atuação Hormonal na Planta
+              </h3>
+              <div class="plant-illustration-container">
+                <div class="plant-central-image">
+                  <img src="plants/ve-v2-plant.png" alt="Planta VE-V2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="plant-placeholder" style="display: none;">
+                    <div class="plant-placeholder-text">
+                      Adicione: plants/ve-v2-plant.png<br>(Imagem da planta inteira)
+                    </div>
+                  </div>
+                </div>
+                <div class="hormone-actions-container">
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #FF6B6B, #EE5A6F);">
+                      <img src="icons/ga.png" alt="GA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">GA</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Giberelinas (GA)</h4>
+                      <div class="action-location">📍 Atuação: Sementes → Hipocótilo → Cotilédones</div>
+                      <div class="action-description">
+                        Ativam enzimas hidrolíticas (α-amilases) que mobilizam reservas do endosperma. Promovem alongamento do hipocótilo e emergência da plântula.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                      <img src="icons/ax.png" alt="AX" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">AX</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Auxinas (AX)</h4>
+                      <div class="action-location">📍 Atuação: Raiz Primária → Raízes Laterais</div>
+                      <div class="action-description">
+                        Produzidas no ápice caulinar, descem via floema até as raízes. Estimulam alongamento celular, geotropismo positivo e ramificação radicular.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #A8E6CF, #56AB91);">
+                      <img src="icons/ck.png" alt="CK" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">CK</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Citocininas (CK)</h4>
+                      <div class="action-location">📍 Atuação: Raízes → Xilema → Parte Aérea</div>
+                      <div class="action-description">
+                        Produzidas nas raízes, sobem via xilema. Estimulam divisão celular nos cotilédones e primeiras folhas. Balanço AX/CK define arquitetura.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="critical-function">
+              <h3>⚡ Função Crítica Integrada</h3>
+              <p>
+                A germinação e o vigor inicial dependem da ação conjunta de <strong>GA (quebra de dormência) + Auxina (desenvolvimento radicular) + Micronutrientes Mo/Co/Ni (ativação da nodulação)</strong>. A nodulação eficiente, que se inicia entre V1 e V2, estabelece a capacidade de FBN que suprirá <strong>até 90% da demanda de nitrogênio</strong> da cultura ao longo do ciclo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2: V3-VN -->
+        <div class="slide">
+          <div class="slide-content">
+            <div class="stage-header">
+              <div class="stage-icon vegetative">
+                <img src="icons/v3-vn.png" alt="V3-VN" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="stage-icon-placeholder" style="display: none;"></div>
+              </div>
+              <div class="stage-info">
+                <h2>V3 - VN</h2>
+                <div class="stage-name">Crescimento, Diferenciação e Acúmulo de Reservas</div>
+                <div class="days">📅 16-25 dias após o plantio | Crescimento vegetativo intenso</div>
+              </div>
+            </div>
+            <div class="context-section">
+              <h4>📖 Contexto Fenológico</h4>
+              <p>Durante os estádios V3 a VN (último nó antes do florescimento), a planta intensifica o crescimento vegetativo, expandindo área foliar, diferenciando nós reprodutivos e acumulando fotoassimilados. <strong>Em V5, define-se o número potencial de nós</strong> que a planta terá, cada um capaz de originar ramos laterais e vagens. Este período determina a estrutura vegetativa que sustentará a fase reprodutiva.</p>
+            </div>
+            <div class="plant-illustration-section">
+              <h3 style="text-align: center; color: #0066FF; margin-bottom: 1.5rem; font-size: 1.4rem;">
+                📊 Mapa de Atuação Hormonal na Planta
+              </h3>
+              <div class="plant-illustration-container">
+                <div class="plant-central-image">
+                  <img src="plants/v3-vn-plant.png" alt="Planta" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="plant-placeholder" style="display: none;">
+                    <div class="plant-placeholder-text">
+                      Adicione: plants/v3-vn-plant.png<br>(Imagem da planta inteira)
+                    </div>
+                  </div>
+                </div>
+                <div class="hormone-actions-container">
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                      <img src="icons/ax.png" alt="AX" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">AX</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Auxinas (AX)</h4>
+                      <div class="action-location">📍 Atuação: Caule → Dominância Apical</div>
+                      <div class="action-description">Favorecem alongamento caulinar e dominância apical, enquanto citocininas estimulam ramificação lateral.</div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #A8E6CF, #56AB91);">
+                      <img src="icons/ck.png" alt="CK" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">CK</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Citocininas (CK)</h4>
+                      <div class="action-location">📍 Atuação: Gemas Axilares → Ramificação</div>
+                      <div class="action-description">Estimulam ramificação lateral e expansão de gemas axilares. Aumentam o número de nós reprodutivos.</div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #FF6B6B, #EE5A6F);">
+                      <img src="icons/ga.png" alt="GA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">GA</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Giberelinas (GA)</h4>
+                      <div class="action-location">📍 Atuação: Entrenós → Alongamento</div>
+                      <div class="action-description">Promovem alongamento dos entrenós. Aplicações V3-V4 aumentam altura de inserção da primeira vagem.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="critical-function">
+              <h3>⚡ Função Crítica Integrada</h3>
+              <p>
+                O crescimento vegetativo vigoroso depende da ação coordenada de <strong>Auxinas + Citocininas + Giberelinas</strong>, que modulam divisão celular, alongamento e diferenciação. Micronutrientes como <strong>Zn, Mn, Cu e B</strong> atuam como cofatores de enzimas fotossintéticas, permitindo alta taxa de acúmulo de biomassa e estabelecendo o <strong>"esqueleto" vegetativo</strong> que sustentará a carga reprodutiva.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3: R1-R3 -->
+        <div class="slide">
+          <div class="slide-content">
+            <div class="stage-header">
+              <div class="stage-icon flowering">
+                <img src="icons/r1-r3.png" alt="R1-R3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="stage-icon-placeholder" style="display: none;"></div>
+              </div>
+              <div class="stage-info">
+                <h2>R1 - R3</h2>
+                <div class="stage-name">Transição Crítica e Definição de Componentes de Rendimento</div>
+                <div class="days">📅 25-72 dias após o plantio | Início do florescimento até vagem "canivetinho"</div>
+              </div>
+            </div>
+            <div class="context-section">
+              <h4>📖 Contexto Fenológico - PERÍODO CRÍTICO ⚠️</h4>
+              <p>O estádio R1 (início do florescimento) é marcado pela presença de ao menos uma flor aberta na haste principal. Em R2 (florescimento pleno), observa-se flor aberta em um dos dois últimos nós do caule. O estádio R3 (início da formação de vagens) caracteriza-se por vagens com até 5 mm de comprimento, conhecidas como "canivetinho". <strong>Este período define o número de vagens por planta, um dos principais componentes de rendimento.</strong></p>
+            </div>
+            <div class="plant-illustration-section">
+              <h3 style="text-align: center; color: #0066FF; margin-bottom: 1.5rem; font-size: 1.4rem;">
+                📊 Mapa de Atuação Hormonal na Planta - R1-R3
+              </h3>
+              <div class="plant-illustration-container">
+                <div class="plant-central-image">
+                  <img src="plants/r1-r3-plant.png" alt="Planta R1-R3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="plant-placeholder" style="display: none;">
+                    <div class="plant-placeholder-text">
+                      Adicione: plants/r1-r3-plant.png<br>(Imagem da planta inteira no estádio R1-R3)
+                    </div>
+                  </div>
+                </div>
+                <div class="hormone-actions-container">
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #FF6B6B, #EE5A6F);">
+                      <img src="icons/ga.png" alt="GA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">GA</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Giberelinas (GA)</h4>
+                      <div class="action-location">📍 Atuação: Flores → Indução e Desenvolvimento</div>
+                      <div class="action-description">
+                        Aplicações em R1 e R3 aumentam significativamente o número de vagens por planta. Regulam florescimento junto com citocininas.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #A8E6CF, #56AB91);">
+                      <img src="icons/ck.png" alt="CK" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">CK</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Citocininas (CK)</h4>
+                      <div class="action-location">📍 Atuação: Botões Florais → Divisão Celular</div>
+                      <div class="action-description">
+                        Essenciais para indução floral e divisão celular nos órgãos reprodutivos. Reduzem o abortamento natural de flores.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #FFD93D, #F4A261);">
+                      <img src="icons/et.png" alt="ET" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">ET</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Etileno (ET)</h4>
+                      <div class="action-location">📍 Atuação: Flores/Vagens → Abscisão</div>
+                      <div class="action-description">
+                        Hormônio gasoso que promove abscisão de flores e vagens imaturas. Abortamento natural ultrapassa 50% na soja.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #C77DFF, #9D4EDD);">
+                      <img src="icons/aba.png" alt="ABA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">ABA</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Ácido Abscísico (ABA)</h4>
+                      <div class="action-location">📍 Atuação: Planta Inteira → Resposta ao Estresse</div>
+                      <div class="action-description">
+                        Sinalizador de estresse hídrico. Déficit em R3 intensifica abortamento de vagens irreversivelmente.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="critical-function">
+              <h3>⚡ Função Crítica Integrada</h3>
+              <p>
+                O florescimento e a formação de vagens representam o <strong>período de MAIOR sensibilidade</strong> a estresses. A suplementação adequada de <strong>Boro (0,5-1 L/ha)</strong> nos estádios R1-R2 pode gerar <strong>incrementos de até 15% na produtividade</strong>. A aplicação conjunta de bioestimulantes contendo <strong>CK + GA3 + Auxinas</strong> reduz o abortamento e aumenta o número de vagens por planta.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4: R5 -->
+        <div class="slide">
+          <div class="slide-content">
+            <div class="stage-header">
+              <div class="stage-icon grain-fill">
+                <img src="icons/r5.png" alt="R5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="stage-icon-placeholder" style="display: none;"></div>
+              </div>
+              <div class="stage-info">
+                <h2>R5</h2>
+                <div class="stage-name">Mobilização de Reservas e Definição de Massa</div>
+                <div class="days">📅 95 dias após o plantio | R5.1 (10%) até R5.5 (100% granação)</div>
+              </div>
+            </div>
+            <div class="context-section">
+              <h4>📖 Contexto Fenológico</h4>
+              <p>O estádio R5 é subdividido em cinco subfases (R5.1 a R5.5), representando o enchimento progressivo dos grãos: R5.1 = 10% de granação; R5.3 = 26-50%; R5.5 = 76-100%. Durante R5, ocorre <strong>intensa redistribuição de matéria seca e nutrientes</strong> das partes vegetativas para os grãos. Ataques de percevejos (sugadores) nesta fase causam redução de tamanho e peso de grãos.</p>
+            </div>
+            <div class="plant-illustration-section">
+              <h3 style="text-align: center; color: #0066FF; margin-bottom: 1.5rem; font-size: 1.4rem;">
+                📊 Mapa de Atuação Hormonal na Planta - R5
+              </h3>
+              <div class="plant-illustration-container">
+                <div class="plant-central-image">
+                  <img src="plants/r5-plant.png" alt="Planta R5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="plant-placeholder" style="display: none;">
+                    <div class="plant-placeholder-text">
+                      Adicione: plants/r5-plant.png<br>(Imagem da planta inteira no estádio R5)
+                    </div>
+                  </div>
+                </div>
+                <div class="hormone-actions-container">
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #FF6B6B, #EE5A6F);">
+                      <img src="icons/ga.png" alt="GA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">GA</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Giberelinas (GA)</h4>
+                      <div class="action-location">📍 Atuação: Folhas → Efeito "Stay-Green"</div>
+                      <div class="action-description">
+                        Retardam senescência foliar, prolongando a fase fotossintética ativa e aumentando o período de enchimento de grãos.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #A8E6CF, #56AB91);">
+                      <img src="icons/ck.png" alt="CK" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">CK</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Citocininas (CK)</h4>
+                      <div class="action-location">📍 Atuação: Tecidos Foliares → Longevidade</div>
+                      <div class="action-description">
+                        Aplicações de GA3 + CK em R5 aumentam longevidade foliar por até 15 dias, favorecendo acúmulo de massa seca nos grãos.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #FFD93D, #F4A261);">
+                      <img src="icons/et.png" alt="ET" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">ET</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Etileno (ET)</h4>
+                      <div class="action-location">📍 Atuação: Folhas → Início da Senescência</div>
+                      <div class="action-description">
+                        Começa a aumentar no final de R5, sinalizando início da senescência. Pode acelerar senescência prematura.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #C77DFF, #9D4EDD);">
+                      <img src="icons/aba.png" alt="ABA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">ABA</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Ácido Abscísico (ABA)</h4>
+                      <div class="action-location">📍 Atuação: Grãos/Sementes → Preparação</div>
+                      <div class="action-description">
+                        Prepara a planta para maturação, sinalizando o término da fase de crescimento ativo dos grãos.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="critical-function">
+              <h3>⚡ Função Crítica Integrada</h3>
+              <p>
+                O enchimento de grãos é determinado pela <strong>duração da fase fotossintética ativa ("stay-green")</strong>. A aplicação de bioestimulantes (<strong>CK + GA3</strong>) em R5 retarda a senescência e prolonga o período de enchimento, resultando em <strong>maior peso de mil grãos</strong>. Déficits hídricos em R5 causam grãos pequenos e leves. Este estádio define diretamente a <strong>massa dos grãos e a produtividade final</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 5: R6-R8 -->
+        <div class="slide">
+          <div class="slide-content">
+            <div class="stage-header">
+              <div class="stage-icon maturation">
+                <img src="icons/r6-r8.png" alt="R6-R8" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="stage-icon-placeholder" style="display: none;"></div>
+              </div>
+              <div class="stage-info">
+                <h2>R6 - R8</h2>
+                <div class="stage-name">Finalização do Ciclo</div>
+                <div class="days">📅 95-110 dias após o plantio | Grão verde até maturação plena</div>
+              </div>
+            </div>
+            <div class="context-section">
+              <h4>📖 Contexto Fenológico</h4>
+              <p>Em R6 (grão verde ou vagem cheia), o grão ocupa toda a cavidade da vagem, e <strong>a planta atinge o máximo acúmulo de matéria seca</strong>. O estádio R7 (início da maturação fisiológica) caracteriza-se por ao menos uma vagem com coloração marrom ou palha. Em R8 (maturação plena), 95% das vagens apresentam coloração madura, e a umidade dos grãos atinge 13-15%, <strong>ponto ideal para colheita</strong>.</p>
+            </div>
+            <div class="plant-illustration-section">
+              <h3 style="text-align: center; color: #0066FF; margin-bottom: 1.5rem; font-size: 1.4rem;">
+                📊 Mapa de Atuação Hormonal na Planta - R6-R8
+              </h3>
+              <div class="plant-illustration-container">
+                <div class="plant-central-image">
+                  <img src="plants/r6-r8-plant.png" alt="Planta R6-R8" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="plant-placeholder" style="display: none;">
+                    <div class="plant-placeholder-text">
+                      Adicione: plants/r6-r8-plant.png<br>(Imagem da planta inteira no estádio R6-R8)
+                    </div>
+                  </div>
+                </div>
+                <div class="hormone-actions-container">
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #FFD93D, #F4A261);">
+                      <img src="icons/et.png" alt="ET" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">ET</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Etileno (ET) - DOMINANTE 👑</h4>
+                      <div class="action-location">📍 Atuação: Planta Inteira → Senescência Total</div>
+                      <div class="action-description">
+                        Hormônio CENTRAL na senescência e maturação. Promove amarelecimento foliar, abscisão e desidratação dos grãos. Acelera degradação de clorofila e proteínas.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hormone-action-item">
+                    <div class="hormone-action-icon" style="background: linear-gradient(135deg, #C77DFF, #9D4EDD);">
+                      <img src="icons/aba.png" alt="ABA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="hormone-action-icon-placeholder" style="display: none;">ABA</div>
+                    </div>
+                    <div class="hormone-action-info">
+                      <h4>Ácido Abscísico (ABA)</h4>
+                      <div class="action-location">📍 Atuação: Folhas/Grãos → Mobilização Final</div>
+                      <div class="action-description">
+                        Intensifica senescência foliar e mobilização final de reservas para os grãos. Regula fechamento estomático e redução fotossintética.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="critical-function">
+              <h3>⚡ Função Crítica Integrada</h3>
+              <p>
+                A maturação é regulada pelo aumento progressivo de <strong>Etileno + ABA</strong>, que desencadeiam a senescência foliar, a mobilização final de reservas e a desidratação dos grãos. Em R6, os grãos atingem o máximo acúmulo de matéria seca. Em R8 (maturação plena), 95% das vagens apresentam coloração madura. <strong>Colheita ideal: 13% de umidade</strong> para minimizar perdas mecânicas e garantir qualidade de armazenamento.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 6: Aplicações Práticas -->
+        <div class="slide">
+          <div class="slide-content">
+            <div class="stage-header">
+              <div class="stage-icon practices">
+                <img src="icons/practices.png" alt="Práticas" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="stage-icon-placeholder" style="display: none;"></div>
+              </div>
+              <div class="stage-info">
+                <h2>Aplicações Práticas</h2>
+                <div class="stage-name">Manejo Hormonal e Nutricional Integrado</div>
+                <div class="days">🚜 Estratégias para Maximização da Produtividade</div>
+              </div>
+            </div>
+            <div class="info-grid">
+              <div class="info-section">
+                <h3>💊 Uso de Bioestimulantes</h3>
+                <div class="hormone-list">
+                  <div class="hormone-item">
+                    <strong>Tratamento de Sementes</strong>
+                    <p>Doses de 0,5 L/100 kg de sementes (AIB 0,005% + Cinetina 0,009% + GA3 0,005%). <strong>Aumenta germinação, vigor inicial e nodulação.</strong></p>
+                  </div>
+                  <div class="hormone-item">
+                    <strong>Aplicação Foliar em V5</strong>
+                    <p>Doses de 0,25-0,375 L/ha. <strong>Incrementa área foliar, número de nós e taxa assimilatória líquida</strong>, resultando em maior acúmulo de biomassa.</p>
+                  </div>
+                  <div class="hormone-item">
+                    <strong>Aplicação Foliar em R1</strong>
+                    <p>Doses de 0,25-0,375 L/ha. <strong>Reduz abortamento de flores (>50% natural)</strong> e aumenta o número de vagens por planta.</p>
+                  </div>
+                  <div class="hormone-item">
+                    <strong>Aplicação Foliar em R5</strong>
+                    <p>Doses de 0,25-0,375 L/ha. <strong>Retarda senescência foliar, prolonga enchimento</strong> por até 15 dias, aumenta peso de mil grãos.</p>
+                  </div>
+                  <div class="hormone-item" style="background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 200, 0, 0.05));">
+                    <strong>📊 Incremento Produtivo Comprovado</strong>
+                    <p>Uso combinado (tratamento de sementes + 3 aplicações foliares V5/R1/R5) = <strong>37-40% de aumento na produtividade</strong>.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="info-section">
+                <h3>🧪 Estratégias de Micronutrientes</h3>
+                <div class="nutrient-list">
+                  <div class="nutrient-item">
+                    <strong>Mo, Co, Ni (Tratamento de Sementes ou V5-V6)</strong>
+                    <p><strong>12-15 g/ha Mo + 2-3 g/ha Co + 4-5 g/ha Ni.</strong> Otimiza FBN, garante até 90% do nitrogênio via fixação biológica. Reduz custo com adubação nitrogenada.</p>
+                  </div>
+                  <div class="nutrient-item">
+                    <strong>Zinco (Aplicação Foliar em V9)</strong>
+                    <p><strong>200-400 g/ha Zn.</strong> Incremento de 10% na produtividade, maior teor foliar de Zn, maior massa de 100 grãos e melhor qualidade de sementes.</p>
+                  </div>
+                  <div class="nutrient-item critical-nutrient">
+                    <strong>⭐ Boro (Aplicações Parceladas V4-V5, R1-R2, R5)</strong>
+                    <p><strong>100-200 g/ha B total (parcelado).</strong> Essencial para florescimento, pegamento de vagens e enchimento. <strong>Incremento de até 15% na produtividade.</strong> Usar fontes quelatizadas para maior absorção foliar.</p>
+                  </div>
+                  <div class="nutrient-item">
+                    <strong>Manganês e Ferro (Solo ou Foliar)</strong>
+                    <p>Aplicação incorporada ao solo ou via foliar (quelatos) em solos com pH elevado (>6,5) ou deficientes. Essencial para fotossíntese e proteção oxidativa.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="critical-function">
+              <h3>⚡ Síntese de Recomendações para Máxima Produtividade</h3>
+              <p>
+                <strong>1) Tratamento de Sementes:</strong> Rizóbios específicos + Mo/Co/Ni + Bioestimulantes (0,5 L/100 kg)<br>
+                <strong>2) Bioestimulantes Foliares:</strong> V5, R1, R5 (0,25-0,375 L/ha cada) = +37-40% produtividade<br>
+                <strong>3) Boro Parcelado:</strong> V4-V5, R1-R2, R5 (total 100-200 g/ha) = +15% produtividade<br>
+                <strong>4) Zinco V9:</strong> 200-400 g/ha = +10% produtividade<br>
+                <strong>5) Monitoramento Nutricional:</strong> Análises foliares em V5 e R2 para ajustes<br>
+                <strong>6) Manejo Hídrico Crítico:</strong> Garantir água adequada em R3 (definição de vagens) e R5 (enchimento de grãos)
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
     <!-- Controles de Navegação -->
     <div class="carousel-controls">
-      <button class="nav-button" id="prevBtn" aria-label="Anterior">◀</button>
+      <button class="nav-button" id="prevBtn">◀</button>
       <div class="indicators" id="indicators"></div>
-      <button class="nav-button" id="nextBtn" aria-label="Próximo">▶</button>
+      <button class="nav-button" id="nextBtn">▶</button>
     </div>
-  </main>
+
+  </div>
 
   <!-- JavaScript -->
   <script src="script.js"></script>
